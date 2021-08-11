@@ -6,8 +6,6 @@ gen = DocumentGenerator()
 def loadText():
     
     sentence = gen.paragraph()
-        
-
     return sentence
 
 

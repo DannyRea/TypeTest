@@ -13,11 +13,13 @@ sentence = ""
 entered=""
 correctCount = 0
 incorrectCount = 0
-mispelled = []   
+mispelled = []
+hasStarted = False   
 t = 60
 def setText():
     global sentence
     global errorBox
+    global hasStarted
     if ((e1.get() == "" or e1.get().isspace()) or (e2.get() == "" or e2.get().isspace())):
         errorBox = Toplevel()
         errorBox.geometry("200x100")
@@ -28,34 +30,39 @@ def setText():
         b1['state'] = DISABLED   
         errorBox.protocol('WM_DELETE_WINDOW', close)    
     else:
-        sentence = loadText()
+        hasStarted = True
+        if (hasStarted is True):
+            b1['state'] = DISABLED 
+            sentence = loadText()
+    
     
       
-        print(sentence)
+            print(sentence)
 
-        # Delete is going to erase anything
-        # in the range of 0 and end of file,
-        # The respective range given here
-        inputtxt.delete(1.0,END)
+            # Delete is going to erase anything
+            # in the range of 0 and end of file,
+            # The respective range given here
+            inputtxt.delete(1.0,END)
       
-        # Insert method inserts the text at
-        # specified position, Here it is the
-        # begining
-        inputtxt.insert(1.0, sentence)
+            # Insert method inserts the text at
+            # specified position, Here it is the
+            # begining
+            inputtxt.insert(1.0, sentence)
     
-        second.set(3)
-        root.update()
-        time.sleep(1)
-        second.set(2)
-        root.update()
-        time.sleep(1)
-        second.set(1)
-        root.update()
-        time.sleep(1)
-        second.set("GO!")
-        root.update()
-        time.sleep(1)      
-        tick()
+            second.set(3)
+            root.update()
+            time.sleep(1)
+            second.set(2)
+            root.update()
+            time.sleep(1)
+            second.set(1)
+            root.update()
+            time.sleep(1)
+            second.set("GO!")
+            root.update()
+            time.sleep(1)      
+            tick()
+        
     
 
 def scanText():
@@ -77,6 +84,11 @@ def scanText():
     print(correctCount)
     print(incorrectCount)
     showScore(correctCount, incorrectCount, mispelled, wpm)
+    entered = ""
+    correctCount = 0
+    incorrectCount = 0
+    mispelled.clear()
+    b1['state'] = NORMAL
     
 
 def showScore(c, i, words,wpm):
