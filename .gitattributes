@@ -1,1 +1,5 @@
-*.tcl linguist-documentation=false
+*.py linguist-detectable=true
+*.tcl inguist-detectable=false
+theme/* linguist-vendored
+
+docs/* linguist-documentation
