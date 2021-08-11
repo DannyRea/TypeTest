@@ -52,7 +52,9 @@ def setText():
         second.set(1)
         root.update()
         time.sleep(1)
+        second.set("GO!")
         root.update()
+        time.sleep(1)      
         tick()
     
 
@@ -105,9 +107,10 @@ def tick():
     t-=1
     print(t)
     second.set(t)
-    if t == 0:
-        
+    if t == 0:   
         scanText()
+        t=60
+        inputtxt1.delete(1.0,END)
     else:
         secondEntry.after(1000, tick)
 
