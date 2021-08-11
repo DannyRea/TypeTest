@@ -2,4 +2,3 @@
 *.tcl inguist-detectable=false
 theme/* linguist-vendored
 
-docs/* linguist-documentation
