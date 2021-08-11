@@ -1,6 +1,8 @@
 # TypeTest
 A program to measure ones typing speed from a series of randomly generated sentences. MongoDB integration to track user stats and scores. 
 
+![Demo](Demo.png)
+
 Planned for future:
 
     * Visual changes
